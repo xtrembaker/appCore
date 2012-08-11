@@ -83,7 +83,7 @@ class AppCoreAppModel extends Model {
                 }
             }else{
                 // Cas spécial de champ utilisé par les behavior
-                if(in_array($name_,array('parent_node','upload_folder'))){
+                if(in_array($name_,array('path','parent_node','upload_folder'))){
                     return parent::__call($name, $arguments);
                 }
                 if(!method_exists($this, $name_)){
