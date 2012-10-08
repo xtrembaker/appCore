@@ -23,7 +23,8 @@ class CoreLanguageComponent extends Component {
             $error = 'You have to specified a default language';
             throw new InternalErrorException($error);
         }
-        if($this->__settings['forceLang'] && !isset($this->controller->request->params['lang'])){
+        // Redirect cause an error in console mode
+        if(isset($_REQUEST) && $this->__settings['forceLang'] && !isset($this->controller->request->params['lang'])){
             $this->controller->redirect(array(
                                             //'controller' => $this->controller->request->params['controller'],
                                             //'action' => $this->controller->request->params['action'],
