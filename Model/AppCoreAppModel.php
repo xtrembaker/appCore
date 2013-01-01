@@ -343,4 +343,12 @@ class AppCoreAppModel extends Model {
         $list = implode($sep, $array);
         return "'".$list."'";
     } 
+    /**
+     * Find and delete the extension of the file_name passed in parameter
+     * 
+     * @param string $filename
+     */
+    function stripExt($filename){
+        return substr($filename, 0,strrpos($filename,'.'));
+    }
 }
